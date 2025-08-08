@@ -1,5 +1,5 @@
 import React from 'react';
-import RadarPreConexao from './components/RadarPreConexao';
+import RadarPreConexao from './RadarPreConexao';
 import './App.css';
 
 function App() {
