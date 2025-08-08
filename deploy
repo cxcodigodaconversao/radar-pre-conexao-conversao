@@ -1,0 +1,19 @@
+## 🚀 Passos para subir no GitHub e Netlify
+
+### 1. Criar repositório no GitHub
+1. Vá em https://github.com e crie um novo repositório
+2. Nome: `radar-pre-conexao`
+3. Marque como público
+4. Não inicialize com README (você vai subir os arquivos)
+
+### 2. Configurar projeto localmente
+```bash
+# Crie uma pasta e entre nela
+mkdir radar-pre-conexao
+cd radar-pre-conexao
+
+# Inicialize o git
+git init
+
+# Crie os arquivos (use o conteúdo dos artifacts acima)
+# Copie o componente RadarPreConexao para src/components/RadarPreConexao.jsx
