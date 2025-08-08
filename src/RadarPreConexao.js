@@ -238,17 +238,17 @@ const RadarPreConexao = () => {
       <div className="mb-8">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">🧭 Radar Pré-Conexão</h1>
-            <p className="text-gray-600">Sistema de pré-qualificação e preparação de calls por perfil DISC</p>
+            <h1 className="text-3xl font-bold mb-2" style={{color: '#d2bc8f'}}>🧭 Radar Pré-Conexão</h1>
+            <p className="text-white">Sistema de pré-qualificação e preparação de calls por perfil DISC</p>
           </div>
           
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-2 text-blue-600">
+            <div className="flex items-center gap-2" style={{color: '#d2bc8f'}}>
               <Database className="w-4 h-4" />
               <span className="text-sm">Dados locais</span>
             </div>
             {leads.length > 0 && (
-              <div className="text-xs text-gray-500 ml-2">
+              <div className="text-xs text-gray-400 ml-2">
                 {leads.length} leads
               </div>
             )}
@@ -257,42 +257,44 @@ const RadarPreConexao = () => {
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-blue-50 p-6 rounded-lg">
-          <Users className="w-8 h-8 text-blue-600 mb-3" />
-          <h3 className="text-xl font-semibold text-gray-800">Total de Leads</h3>
-          <p className="text-3xl font-bold text-blue-600">{leads.length}</p>
+        <div className="p-6 rounded-lg" style={{backgroundColor: 'rgba(210, 188, 143, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)'}}>
+          <Users className="w-8 h-8 mb-3" style={{color: '#d2bc8f'}} />
+          <h3 className="text-xl font-semibold text-white">Total de Leads</h3>
+          <p className="text-3xl font-bold" style={{color: '#d2bc8f'}}>{leads.length}</p>
         </div>
         
-        <div className="bg-green-50 p-6 rounded-lg">
-          <CheckCircle className="w-8 h-8 text-green-600 mb-3" />
-          <h3 className="text-xl font-semibold text-gray-800">Prontos p/ Call</h3>
-          <p className="text-3xl font-bold text-green-600">
+        <div className="p-6 rounded-lg" style={{backgroundColor: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)'}}>
+          <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
+          <h3 className="text-xl font-semibold text-white">Prontos p/ Call</h3>
+          <p className="text-3xl font-bold text-green-400">
             {leads.filter(l => l.estado === 'pronto_para_call').length}
           </p>
         </div>
         
-        <div className="bg-yellow-50 p-6 rounded-lg">
-          <BarChart3 className="w-8 h-8 text-yellow-600 mb-3" />
-          <h3 className="text-xl font-semibold text-gray-800">Em Qualificação</h3>
-          <p className="text-3xl font-bold text-yellow-600">
+        <div className="p-6 rounded-lg" style={{backgroundColor: 'rgba(251, 191, 36, 0.1)', border: '1px solid rgba(251, 191, 36, 0.3)'}}>
+          <BarChart3 className="w-8 h-8 text-yellow-400 mb-3" />
+          <h3 className="text-xl font-semibold text-white">Em Qualificação</h3>
+          <p className="text-3xl font-bold text-yellow-400">
             {leads.filter(l => l.estado === 'pre_qualificado').length}
           </p>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-4">Ações Rápidas</h2>
+      <div className="p-6 rounded-lg shadow-lg mb-6" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(210, 188, 143, 0.2)'}}>
+        <h2 className="text-xl font-semibold mb-4" style={{color: '#d2bc8f'}}>Ações Rápidas</h2>
         <div className="grid md:grid-cols-2 gap-4">
           <button
             onClick={() => setCurrentScreen('cadastro')}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 flex items-center gap-2"
+            className="px-6 py-3 rounded-lg hover:opacity-80 transition-opacity flex items-center gap-2 text-white font-medium"
+            style={{backgroundColor: '#d2bc8f'}}
           >
             <User className="w-5 h-5" />
             Nova Lead
           </button>
           <button
             onClick={() => setCurrentScreen('leads')}
-            className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 flex items-center gap-2"
+            className="px-6 py-3 rounded-lg border-2 text-white hover:bg-white hover:bg-opacity-10 transition-all flex items-center gap-2"
+            style={{borderColor: '#d2bc8f'}}
           >
             <Users className="w-5 h-5" />
             Ver Todas as Leads
@@ -301,22 +303,22 @@ const RadarPreConexao = () => {
       </div>
 
       {leads.length > 0 && (
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Últimas Leads</h2>
+        <div className="p-6 rounded-lg shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(210, 188, 143, 0.2)'}}>
+          <h2 className="text-xl font-semibold mb-4" style={{color: '#d2bc8f'}}>Últimas Leads</h2>
           <div className="space-y-3">
             {leads.slice(-5).reverse().map(lead => (
-              <div key={lead.id} className="flex justify-between items-center p-3 bg-gray-50 rounded">
+              <div key={lead.id} className="flex justify-between items-center p-3 rounded" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)'}}>
                 <div>
-                  <p className="font-medium">{lead.nome}</p>
-                  <p className="text-sm text-gray-600">
+                  <p className="font-medium text-white">{lead.nome}</p>
+                  <p className="text-sm text-gray-300">
                     {lead.perfil_probavel ? `Perfil: ${lead.perfil_probavel}` : 'Sem perfil'}
                   </p>
                 </div>
                 <div className="flex gap-2">
                   <span className={`px-2 py-1 rounded text-xs ${
-                    lead.estado === 'novo' ? 'bg-gray-200' :
-                    lead.estado === 'pre_qualificado' ? 'bg-yellow-200' :
-                    'bg-green-200'
+                    lead.estado === 'novo' ? 'bg-gray-600 text-gray-300' :
+                    lead.estado === 'pre_qualificado' ? 'bg-yellow-600 text-yellow-100' :
+                    'bg-green-600 text-green-100'
                   }`}>
                     {lead.estado ? lead.estado.replace('_', ' ') : 'novo'}
                   </span>
@@ -327,7 +329,8 @@ const RadarPreConexao = () => {
                       else if (lead.estado === 'pre_qualificado') setCurrentScreen('observacao');
                       else setCurrentScreen('mensagens');
                     }}
-                    className="text-blue-600 hover:text-blue-800"
+                    className="hover:opacity-80 transition-opacity"
+                    style={{color: '#d2bc8f'}}
                   >
                     Continuar →
                   </button>
@@ -341,9 +344,9 @@ const RadarPreConexao = () => {
       {/* Loading overlay */}
       {isLoading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg flex items-center gap-3">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
-            <span>Salvando dados...</span>
+          <div className="p-6 rounded-lg flex items-center gap-3" style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)'}}>
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2" style={{borderColor: '#d2bc8f'}}></div>
+            <span className="text-white">Salvando dados...</span>
           </div>
         </div>
       )}
@@ -353,86 +356,93 @@ const RadarPreConexao = () => {
   // T1 - Cadastro
   const Cadastro = () => (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">📝 Cadastro de Nova Lead</h1>
+      <h1 className="text-2xl font-bold mb-6" style={{color: '#d2bc8f'}}>📝 Cadastro de Nova Lead</h1>
       
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="p-6 rounded-lg shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(210, 188, 143, 0.2)'}}>
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Nome *</label>
+            <label className="block text-sm font-medium mb-2" style={{color: '#d2bc8f'}}>Nome *</label>
             <input
               type="text"
               value={cadastroData.nome}
               onChange={(e) => setCadastroData({...cadastroData, nome: e.target.value})}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg focus:ring-2 text-white placeholder-gray-400"
+              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)', focusRingColor: '#d2bc8f'}}
               placeholder="Nome da lead"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">WhatsApp *</label>
+            <label className="block text-sm font-medium mb-2" style={{color: '#d2bc8f'}}>WhatsApp *</label>
             <input
               type="text"
               value={cadastroData.whatsapp}
               onChange={(e) => setCadastroData({...cadastroData, whatsapp: e.target.value})}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg focus:ring-2 text-white placeholder-gray-400"
+              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)'}}
               placeholder="(11) 99999-9999"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Social</label>
+            <label className="block text-sm font-medium mb-2" style={{color: '#d2bc8f'}}>Social</label>
             <input
               type="text"
               value={cadastroData.social}
               onChange={(e) => setCadastroData({...cadastroData, social: e.target.value})}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg focus:ring-2 text-white placeholder-gray-400"
+              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)'}}
               placeholder="@instagram ou LinkedIn"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Origem *</label>
+            <label className="block text-sm font-medium mb-2" style={{color: '#d2bc8f'}}>Origem *</label>
             <select
               value={cadastroData.origem}
               onChange={(e) => setCadastroData({...cadastroData, origem: e.target.value})}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg focus:ring-2 text-white"
+              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)'}}
             >
-              <option value="">Selecione...</option>
-              <option value="site">Site</option>
-              <option value="evento">Evento</option>
-              <option value="indicacao">Indicação</option>
-              <option value="anuncio">Anúncio</option>
-              <option value="organico">Orgânico</option>
+              <option value="" style={{backgroundColor: '#0c121c'}}>Selecione...</option>
+              <option value="site" style={{backgroundColor: '#0c121c'}}>Site</option>
+              <option value="evento" style={{backgroundColor: '#0c121c'}}>Evento</option>
+              <option value="indicacao" style={{backgroundColor: '#0c121c'}}>Indicação</option>
+              <option value="anuncio" style={{backgroundColor: '#0c121c'}}>Anúncio</option>
+              <option value="organico" style={{backgroundColor: '#0c121c'}}>Orgânico</option>
             </select>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Data da Call</label>
+              <label className="block text-sm font-medium mb-2" style={{color: '#d2bc8f'}}>Data da Call</label>
               <input
                 type="date"
                 value={cadastroData.data_call}
                 onChange={(e) => setCadastroData({...cadastroData, data_call: e.target.value})}
-                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 rounded-lg focus:ring-2 text-white"
+                style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)'}}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Hora da Call</label>
+              <label className="block text-sm font-medium mb-2" style={{color: '#d2bc8f'}}>Hora da Call</label>
               <input
                 type="time"
                 value={cadastroData.hora_call}
                 onChange={(e) => setCadastroData({...cadastroData, hora_call: e.target.value})}
-                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 rounded-lg focus:ring-2 text-white"
+                style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)'}}
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Observações Iniciais</label>
+            <label className="block text-sm font-medium mb-2" style={{color: '#d2bc8f'}}>Observações Iniciais</label>
             <textarea
               value={cadastroData.obs_inicial}
               onChange={(e) => setCadastroData({...cadastroData, obs_inicial: e.target.value})}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-lg focus:ring-2 text-white placeholder-gray-400"
+              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(210, 188, 143, 0.3)'}}
               rows="3"
               placeholder="Qualquer observação relevante..."
             />
@@ -442,7 +452,8 @@ const RadarPreConexao = () => {
         <div className="flex gap-3 mt-6">
           <button
             onClick={() => setCurrentScreen('dashboard')}
-            className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50"
+            className="px-6 py-3 border-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all text-white"
+            style={{borderColor: '#d2bc8f'}}
           >
             Cancelar
           </button>
@@ -476,7 +487,8 @@ const RadarPreConexao = () => {
                 alert('Erro ao salvar lead. Tente novamente.');
               }
             }}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+            className="px-6 py-3 rounded-lg hover:opacity-80 transition-opacity text-white font-medium"
+            style={{backgroundColor: '#d2bc8f'}}
             disabled={isLoading}
           >
             {isLoading ? 'Salvando...' : 'Salvar & Avançar'}
@@ -489,12 +501,13 @@ const RadarPreConexao = () => {
   // Tela simples para outras funcionalidades
   const OutraTela = ({ titulo, descricao }) => (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">{titulo}</h1>
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <p className="text-gray-600 mb-4">{descricao}</p>
+      <h1 className="text-2xl font-bold mb-6" style={{color: '#d2bc8f'}}>{titulo}</h1>
+      <div className="p-6 rounded-lg shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(210, 188, 143, 0.2)'}}>
+        <p className="text-white mb-4">{descricao}</p>
         <button
           onClick={() => setCurrentScreen('dashboard')}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+          className="px-6 py-3 rounded-lg hover:opacity-80 transition-opacity text-white font-medium"
+          style={{backgroundColor: '#d2bc8f'}}
         >
           ← Voltar ao Dashboard
         </button>
@@ -506,10 +519,11 @@ const RadarPreConexao = () => {
   const LeadsList = () => (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Todas as Leads</h1>
+        <h1 className="text-2xl font-bold" style={{color: '#d2bc8f'}}>Todas as Leads</h1>
         <button
           onClick={() => setCurrentScreen('dashboard')}
-          className="text-blue-600 hover:text-blue-800"
+          className="hover:opacity-80 transition-opacity"
+          style={{color: '#d2bc8f'}}
         >
           ← Voltar
         </button>
@@ -517,11 +531,12 @@ const RadarPreConexao = () => {
 
       {leads.length === 0 ? (
         <div className="text-center py-12">
-          <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <p className="text-gray-500">Nenhuma lead cadastrada ainda</p>
+          <Users className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+          <p className="text-white">Nenhuma lead cadastrada ainda</p>
           <button
             onClick={() => setCurrentScreen('cadastro')}
-            className="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            className="mt-4 px-6 py-2 rounded hover:opacity-80 transition-opacity text-white font-medium"
+            style={{backgroundColor: '#d2bc8f'}}
           >
             Cadastrar primeira lead
           </button>
@@ -529,32 +544,32 @@ const RadarPreConexao = () => {
       ) : (
         <div className="grid gap-4">
           {leads.map(lead => (
-            <div key={lead.id} className="bg-white p-6 rounded-lg shadow-md">
+            <div key={lead.id} className="p-6 rounded-lg shadow-lg" style={{backgroundColor: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(210, 188, 143, 0.2)'}}>
               <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold">{lead.nome}</h3>
-                  <p className="text-gray-600">{lead.whatsapp}</p>
-                  <p className="text-sm text-gray-500">Origem: {lead.origem}</p>
+                  <h3 className="text-lg font-semibold text-white">{lead.nome}</h3>
+                  <p className="text-gray-300">{lead.whatsapp}</p>
+                  <p className="text-sm text-gray-400">Origem: {lead.origem}</p>
                   {lead.data_call && (
-                    <p className="text-sm text-blue-600">
+                    <p className="text-sm" style={{color: '#d2bc8f'}}>
                       Call: {lead.data_call} às {lead.hora_call}
                     </p>
                   )}
                 </div>
                 <div className="flex flex-col items-end gap-2">
                   <span className={`px-3 py-1 rounded-full text-sm ${
-                    !lead.estado || lead.estado === 'novo' ? 'bg-gray-200 text-gray-800' :
-                    lead.estado === 'pre_qualificado' ? 'bg-yellow-200 text-yellow-800' :
-                    'bg-green-200 text-green-800'
+                    !lead.estado || lead.estado === 'novo' ? 'bg-gray-600 text-gray-300' :
+                    lead.estado === 'pre_qualificado' ? 'bg-yellow-600 text-yellow-100' :
+                    'bg-green-600 text-green-100'
                   }`}>
                     {lead.estado ? lead.estado.replace('_', ' ') : 'novo'}
                   </span>
                   {lead.perfil_probavel && (
                     <span className={`px-2 py-1 rounded text-xs font-bold ${
-                      lead.perfil_probavel === 'D' ? 'bg-red-100 text-red-800' :
-                      lead.perfil_probavel === 'I' ? 'bg-yellow-100 text-yellow-800' :
-                      lead.perfil_probavel === 'S' ? 'bg-green-100 text-green-800' :
-                      'bg-blue-100 text-blue-800'
+                      lead.perfil_probavel === 'D' ? 'bg-red-600 text-red-100' :
+                      lead.perfil_probavel === 'I' ? 'bg-yellow-600 text-yellow-100' :
+                      lead.perfil_probavel === 'S' ? 'bg-green-600 text-green-100' :
+                      'bg-blue-600 text-blue-100'
                     }`}>
                       Perfil {lead.perfil_probavel}
                     </span>
@@ -591,7 +606,7 @@ const RadarPreConexao = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen" style={{backgroundColor: '#0c121c'}}>
       {renderScreen()}
     </div>
   );
