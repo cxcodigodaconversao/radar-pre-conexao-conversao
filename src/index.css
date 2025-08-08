@@ -15,10 +15,90 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f3f4f6;
+  background-color: #0c121c;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Customizar inputs e selects para o tema escuro */
+input[type="text"], 
+input[type="date"], 
+input[type="time"], 
+select, 
+textarea {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(210, 188, 143, 0.3) !important;
+  color: white !important;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus, 
+input[type="date"]:focus, 
+input[type="time"]:focus, 
+select:focus, 
+textarea:focus {
+  border-color: #d2bc8f !important;
+  box-shadow: 0 0 0 2px rgba(210, 188, 143, 0.2) !important;
+  outline: none !important;
+}
+
+input[type="text"]::placeholder, 
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Estilo para datepicker e timepicker */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) opacity(0.8);
+  cursor: pointer;
+}
+
+/* Customizar select options */
+select option {
+  background-color: #0c121c !important;
+  color: white !important;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d2bc8f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(210, 188, 143, 0.8);
+}
+
+/* Botões hover effects */
+button {
+  transition: all 0.2s ease;
+}
+
+/* Animações suaves */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
